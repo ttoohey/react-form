@@ -1,0 +1,60 @@
+{
+  "name": "@ttoohey/react-form",
+  "version": "1.0.0",
+  "description": "Reduces boilerplate when using a GraphQL API with forms in React.",
+  "author": "Gency Digital <hello@gency.com.au>",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ttoohey/react-form.git"
+  },
+  "homepage": "https://github.com/ttoohey/react-form",
+  "bugs": "https://github.com/ttoohey/react-form/issues",
+  "scripts": {
+    "build": "babel src --out-dir dist",
+    "clean": "rm -rf dist *.tgz",
+    "prepare": "npm run clean && npm run build"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-export-default-from": "^7.2.0",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.6",
+    "babel-preset-minify": "^0.5.0",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-react": "^7.13.0",
+    "eslint-plugin-standard": "^4.0.0",
+    "prettier": "^1.17.1",
+    "react-use-validator": "^1.0.4"
+  },
+  "peerDependencies": {
+    "graphql-tag": ">= 2.10.0",
+    "react": ">= 16.8.0",
+    "react-apollo-hooks": ">= 0.4.0",
+    "react-use-validator": ">= 1.0.0"
+  },
+  "babel": {
+    "comments": false,
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react",
+      "minify"
+    ],
+    "plugins": [
+      "@babel/proposal-export-default-from"
+    ]
+  }
+}
