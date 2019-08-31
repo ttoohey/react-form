@@ -1,6 +1,6 @@
 import React from "react";
 import gql from "graphql-tag";
-import { useQuery, useMutation } from "react-apollo-hooks";
+import { useQuery, useMutation } from "@apollo/react-hooks";
 import useValidator, { ignoreValidatorError } from "react-use-validator";
 
 const emptyQuery = gql`
@@ -116,7 +116,7 @@ export default function useForm({
       return;
     }
     const key = getQuerySelectionKey(query);
-    if (!queryData.hasOwnProperty(key)) {
+    if (!Object.prototype.hasOwnProperty.call(queryData, key)) {
       return;
     }
     setFormData(toFormData(queryData, query, key)[key]);
@@ -136,7 +136,7 @@ export default function useForm({
   const mutate = Object.entries(mutations).reduce(
     (mutate, [name, mutation]) => ({
       ...mutate,
-      [name]: useMutation(mutation)
+      [name]: useMutation(mutation)[0]
     }),
     {}
   );
