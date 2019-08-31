@@ -1,6 +1,6 @@
 {
   "name": "@ttoohey/react-form",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Reduces boilerplate when using a GraphQL API with forms in React.",
   "author": "Gency Digital <hello@gency.com.au>",
   "license": "ISC",
