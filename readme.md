@@ -25,7 +25,7 @@ Additional documentation can be found at [react-form-stories](https://github.com
 Install peer dependencies
 
 ```sh
-npm install @ttoohey/react-form graphql-tag react react-apollo-hooks react-use-validator
+npm install @ttoohey/react-form graphql-tag react @apollo/react-hooks react-use-validator
 ```
 
 The `<Form>` component is used to wrap form fields. Field components can make
