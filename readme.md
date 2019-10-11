@@ -159,6 +159,15 @@ The function signature is:
 function (formData: Object) : TVariables
 ```
 
+#### `mutationsOptions` (options, default: {})
+
+Options to pass through to the mutate function when a mutation is being
+performed.
+
+Allows passing `optimisticResponse` and `refetchQueries` through to mutations.
+
+See https://www.apollographql.com/docs/react/api/react-hooks/#result-2
+
 #### `submitAction` (optional, default: "submit")
 
 Sets the name of the action to be used as the default action for the form.

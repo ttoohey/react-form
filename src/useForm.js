@@ -90,6 +90,7 @@ export default function useForm({
   mutationVariables = null,
   mutations: mutationsProp = {},
   mutationsVariables: mutationsVariablesProp = {},
+  mutationsOptions: mutationsOptionsProp = {},
   submitAction = "submit",
   toFormData = (data, query, selectionKey) => data,
   toMutationVariable = (value, type, name) => value,
@@ -154,7 +155,8 @@ export default function useForm({
           toMutationVariable
         );
         const update = getMutationUpdate(mutation, cacheUpdates);
-        return mutate[name]({ variables, update })
+        const mutationOptions = lookup(mutationsOptionsProp, name);
+        return mutate[name]({ ...mutationOptions, variables, update })
           .then(response =>
             trigger(name + "Success", [event, response, state], response)
           )
