@@ -20,11 +20,11 @@
     "prepare": "npm run clean && npm run build"
   },
   "devDependencies": {
-    "@babel/cli": "^7.5.5",
-    "@babel/core": "^7.5.5",
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
     "@babel/plugin-proposal-export-default-from": "^7.5.2",
-    "@babel/preset-env": "^7.5.5",
-    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "babel-preset-minify": "^0.5.1",
@@ -33,9 +33,9 @@
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-node": "^9.2.0",
-    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-standard": "^4.0.1",
     "prettier": "^1.17.1",
     "react-use-validator": "^1.0.4"
