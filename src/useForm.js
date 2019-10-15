@@ -145,13 +145,13 @@ export default function useForm({
   const actions = Object.entries(mutations).reduce(
     (actions, [name, mutation]) => ({
       ...actions,
-      [name]: event => {
+      [name]: async event => {
         event.preventDefault();
         setProgress({ ...progress, [name]: true });
         setMutationErrors({});
         const variables = getMutationVariables(
           mutation,
-          lookup(mutationsVariables, name)(formData),
+          await lookup(mutationsVariables, name)(formData),
           toMutationVariable
         );
         const update = getMutationUpdate(mutation, cacheUpdates);

@@ -151,12 +151,12 @@ The form's actions are derived from this object.
 #### `mutationsVariables` (optional, default: {})
 
 A mapping of action names to functions that return variables for the
-corresponding mutation.
+corresponding mutation. The functions may be asynchronous.
 
 The function signature is:
 
 ```js
-function (formData: Object) : TVariables
+async function (formData: Object) : TVariables
 ```
 
 #### `mutationsOptions` (options, default: {})
