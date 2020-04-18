@@ -29,7 +29,7 @@ npm install @ttoohey/react-form graphql-tag react @apollo/react-hooks react-use-
 ```
 
 The `<Form>` component is used to wrap form fields. Field components can make
-use of the Form context which help avoid repetitive props such as `value` and
+use of the Form context to help avoid repetitive props such as `value` and
 `onChange`
 
 ```js
@@ -376,7 +376,7 @@ All `useForm()` options are available as props, as well as:
 
 #### `formProps` (optional)
 
-An object contain props to be passed to the `<form>` component.
+An object containing props to be passed to the `<form>` component.
 
 #### `renderLoading` (optional)
 
@@ -394,7 +394,12 @@ The `Form` component wraps children in a context that contains the `useForm()`
 state object.
 
 `children` may use the _render props_ technique. If `children` is a render props
-function it will be passed the context object as an argument.
+function it will be passed the state object as an argument.
+
+#### `state` (optional)
+
+Provide a state object created by the `useForm()` hook. When not provided the
+Form component will use an internal state.
 
 ## `useFormContext()`
 

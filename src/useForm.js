@@ -2,6 +2,7 @@ import React from "react";
 import gql from "graphql-tag";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import useValidator, { ignoreValidatorError } from "react-use-validator";
+import { useFormProviderContext } from "./FormProvider";
 
 const emptyQuery = gql`
   query {
@@ -80,23 +81,25 @@ function lookup(o, name) {
   return o instanceof Function ? o(name) : o[name];
 }
 
-export default function useForm({
-  data = {},
-  rules = {},
-  query = null,
-  queryVariables = null,
-  fetchPolicy = "network-only",
-  mutation = null,
-  mutationVariables = null,
-  mutations: mutationsProp = {},
-  mutationsVariables: mutationsVariablesProp = {},
-  mutationsOptions: mutationsOptionsProp = {},
-  submitAction = "submit",
-  toFormData = (data, query, selectionKey) => data,
-  toMutationVariable = (value, type, name) => value,
-  cacheUpdates = {},
-  ...props
-}) {
+export default function useForm() {
+  const formProviderContext = useFormProviderContext();
+  const {
+    data = {},
+    rules = {},
+    query = null,
+    queryVariables = null,
+    fetchPolicy = "network-only",
+    mutation = null,
+    mutationVariables = null,
+    mutations: mutationsProp = {},
+    mutationsVariables: mutationsVariablesProp = {},
+    mutationsOptions: mutationsOptionsProp = {},
+    submitAction = "submit",
+    toFormData = (data, query, selectionKey) => data,
+    toMutationVariable = (value, type, name) => value,
+    cacheUpdates = {},
+    ...props
+  } = { ...formProviderContext, ...arguments[0] };
   const [formData, setFormData] = React.useState(data);
   const [progress, setProgress] = React.useState({});
   const [mutationErrors, setMutationErrors] = React.useState({});

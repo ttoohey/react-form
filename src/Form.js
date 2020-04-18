@@ -1,7 +1,6 @@
 import React from "react";
 import useForm from "./useForm";
 import FormContext from "./FormContext";
-import { useFormProviderContext } from "./FormProvider";
 
 function renderProps(component, ...args) {
   if (component instanceof Function) {
@@ -10,28 +9,40 @@ function renderProps(component, ...args) {
   return component;
 }
 
-export default function Form({
+function FormContextProvider({
   children,
   formProps,
   renderLoading,
   renderError,
+  state,
   ...props
 }) {
-  const formProviderContext = useFormProviderContext();
-  const context = useForm({ ...formProviderContext, ...props });
-  if (context.queryLoading && renderLoading) {
-    return renderLoading(context);
+  if (state.queryLoading && renderLoading) {
+    return renderLoading(state);
   }
-  if (context.queryError && renderError) {
-    return renderError(context);
+  if (state.queryError && renderError) {
+    return renderError(state);
   }
   return (
     <>
-      <FormContext.Provider value={context}>
-        <form onSubmit={context.onSubmit} {...formProps}>
-          {renderProps(children, context)}
+      <FormContext.Provider value={state}>
+        <form onSubmit={state.onSubmit} {...formProps}>
+          {renderProps(children, state)}
         </form>
       </FormContext.Provider>
     </>
   );
+}
+
+function FormHook(props) {
+  const state = useForm(props);
+  return <FormContextProvider {...props} state={state} />;
+}
+
+export default function Form(props) {
+  if (props.state) {
+    return <FormContextProvider {...props} />;
+  } else {
+    return <FormHook {...props} />;
+  }
 }
