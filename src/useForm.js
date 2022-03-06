@@ -1,6 +1,5 @@
 import React from "react";
-import gql from "graphql-tag";
-import { useQuery, useMutation } from "@apollo/react-hooks";
+import { gql, useQuery, useMutation } from "@apollo/client";
 import useValidator, { ignoreValidatorError } from "react-use-validator";
 import { useFormProviderContext } from "./FormProvider";
 
